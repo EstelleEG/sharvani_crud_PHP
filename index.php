@@ -97,7 +97,7 @@
                     <!-- switch from btn save to btn update -->
                     <?php if($update == true): ?>
                     
-                        <button type="submit" class="btn btn-primary" name="save">Update</button>
+                        <button type="submit" class="btn btn-primary" name="update">Update</button>
                     
                     <?php else:  ?>
                     <button type="submit" class="btn btn-primary" name="save">Save</button>

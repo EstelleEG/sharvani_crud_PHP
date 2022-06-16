@@ -32,7 +32,7 @@ if (isset($_POST ['save'])){
     $mysqli->query("INSERT INTO sharvani (firstname, lastname, email, mobile) VALUES ('$lastname','$firstname', '$email', '$mobile')") or die ($mysqli_error($mysqli));
 
     $_SESSION['message'] = "Contact saved";
-    $_SESSION['msg_type'] = "Success";
+    $_SESSION['msg_type'] = "success";
 
 //Redirection to homepage
     header("location:index.php");
@@ -43,12 +43,12 @@ if (isset($_POST ['save'])){
 // DELETE a row in the db 
 if (isset($_GET ['delete'])){
     $id = $_GET['delete'];   //we store the delete in var $id
-    $mysqli->query("DELETE FROM sharvani WHERE id=$id") or die ($mysqli->error());
+    $mysqli->query("DELETE FROM sharvani WHERE id=$id") or die ($mysqli->error);
 
-    $mysqli->query("DELETE FROM sharvani WHERE id=$id") or die($mysqli->error());
+    $mysqli->query("DELETE FROM sharvani WHERE id=$id") or die($mysqli->error);
 
     $_SESSION['message']="Contact supprimé";
-    $_SESSION['msg_type']="Danger";
+    $_SESSION['msg_type']="danger";
 
      //Redirection vers la page d'accueil
      header("location:index.php");
@@ -59,7 +59,7 @@ if (isset($_GET ['delete'])){
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
     $update = true;
-    $result = $mysqli->query("SELECT * FROM sharvani WHERE id=$id") or die ($mysqli->error());
+    $result = $mysqli->query("SELECT * FROM sharvani WHERE id=$id") or die ($mysqli->error);
 
     if($result->num_rows) {
         $row = $result->fetch_array();
@@ -78,13 +78,13 @@ if (isset($_POST['update'])) {
     $email =$_POST['email'];
     $mobile =$_POST['mobile'];
    
-    $result = $mysqli->query("UPDATE sharvani SET lastname='$lastname', firstname='$firstname', email='$email', mobile='$mobile' WHERE id=$id") or die ($mysqli->error());
+    $result = $mysqli->query("UPDATE sharvani SET lastname='$lastname', firstname='$firstname', email='$email', mobile='$mobile' WHERE id=$id") or die ($mysqli->error);
 
     $_SESSION['message']="Contact updated";
-    $_SESSION['msg_type']="Warning";
+    $_SESSION['msg_type']="warning";
 
      //Redirection vers la page d'accueil
-     header("location:index.php");
+     header("location:index.php"); 
 }
 ?>
 
